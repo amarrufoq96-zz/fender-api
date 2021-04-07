@@ -9,10 +9,11 @@ model.getUserByEmail = username => mysql.query(`
 model.getUserInformation = username => mysql.query(`
 SELECT u.id, u.username, u.name, u.password
 FROM user as u
-WHERE u.id = ?;`, [username]);
+WHERE u.id = ? and u.active = 1;`, [username]);
 
 model.getUsersList = username => mysql.query(`
 SELECT u.id, u.username, u.name, u.password
-FROM user as u;`, [username]);
+FROM user as u
+WHERE u.active = 1;`, [username]);
 
 module.exports = model;

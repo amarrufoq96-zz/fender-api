@@ -4,6 +4,6 @@ const model = {};
 model.getUserFavorites = username => mysql.query(`
 SELECT character_id AS characterId
 FROM user_favorites
-WHERE user_id = ?;`, [username]);
+WHERE user_id = ? AND active = 1;`, [username]);
 
 module.exports = model;

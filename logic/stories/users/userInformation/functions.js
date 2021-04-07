@@ -25,7 +25,7 @@ async function getuserInformation(parameters = {}) {
 async function getuserFavorites(userData = []) {
     const getFavorites = await usersFavorites.getUserFavorites(userData.id);
     const { id, username, name } = userData;
-    if (getFavorites.length > 0) {
+    if (getFavorites) {
         const favorites = [];
         getFavorites.map(items => {
             favorites.push(items.characterId);
