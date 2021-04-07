@@ -27,4 +27,9 @@ router.get(routes.usersList, ctx => users.usersList({ ...ctx.params, ...ctx.requ
         ctx.body = data;
     }));
 
+router.post(routes.editUser, ctx => users.editUser({ ...ctx.request.body })
+    .then(data => {
+        ctx.body = data;
+    }));
+
 module.exports = router;
