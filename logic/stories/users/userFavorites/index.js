@@ -2,8 +2,8 @@ const functions = require('./functions');
 const validation = require('./validation');
 const system = require('../../system');
 
-const createUser = (parameters) => system.startPromiseChain(parameters)
+const saveFavoriteCharacter = (parameters) => system.startPromiseChain(parameters)
     .then(validation.validateParameters)
-    .then(functions.createUser);
+    .then(functions.createFavorite);
 
-module.exports = { createUser };
+module.exports = { saveFavoriteCharacter };

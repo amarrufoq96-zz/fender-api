@@ -3,17 +3,10 @@ const validation = {};
 
 validation.validateParameters = async (parameters) => {
     const schema = Joi.object().keys({
-        username: Joi.string()
-            .trim()
-            .min(3)
+        id: Joi.number()
             .max(255)
             .required(),
-        password: Joi.string()
-            .trim()
-            .max(255)
-            .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$'))
-            .required(),
-        name: Joi.string()
+        idCharacter: Joi.number()
             .max(255)
             .required(),
     });
