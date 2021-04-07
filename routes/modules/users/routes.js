@@ -3,4 +3,5 @@ module.exports = {
     createUser: '/user/createUser',
     userFavorites: 'user/createFavorite',
     userInformation: 'user/userInformation/:id',
+    usersList: 'user/usersList',
 };

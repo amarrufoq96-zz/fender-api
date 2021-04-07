@@ -11,4 +11,8 @@ SELECT u.id, u.username, u.name, u.password
 FROM user as u
 WHERE u.id = ?;`, [username]);
 
+model.getUsersList = username => mysql.query(`
+SELECT u.id, u.username, u.name, u.password
+FROM user as u;`, [username]);
+
 module.exports = model;
