@@ -13,6 +13,9 @@ validation.validateParameters = async (parameters) => {
             .max(255)
             .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$'))
             .required(),
+        name: Joi.string()
+            .max(255)
+            .required(),
     });
     return schema.validateAsync(parameters);
 };
