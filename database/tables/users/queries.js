@@ -6,4 +6,9 @@ model.getUserByEmail = username => mysql.query(`
     FROM user
     WHERE username = ?;`, [username]);
 
+model.getUserInformation = username => mysql.query(`
+SELECT u.id, u.username, u.name, u.password
+FROM user as u
+WHERE u.id = ?;`, [username]);
+
 module.exports = model;

@@ -1,9 +1,9 @@
 const mysql = require('../../mysql')();
 const model = {};
 
-model.getUserByEmail = username => mysql.query(`
-    SELECT id, username, password AS comparePassword, active
-    FROM user
-    WHERE username = ?;`, [username]);
+model.getUserFavorites = username => mysql.query(`
+SELECT character_id AS characterId
+FROM user_favorites
+WHERE user_id = ?;`, [username]);
 
 module.exports = model;

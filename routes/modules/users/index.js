@@ -17,4 +17,9 @@ router.post(routes.userFavorites, ctx => users.saveFavoriteCharacter({ ...ctx.re
         ctx.body = data;
     }));
 
+router.get(routes.userInformation, ctx => users.userInformation({ ...ctx.params, ...ctx.request.query })
+    .then(data => {
+        ctx.body = data;
+    }));
+
 module.exports = router;
