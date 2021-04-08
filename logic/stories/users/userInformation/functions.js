@@ -1,3 +1,4 @@
+const axios = require('axios');
 const { messages } = require.main.require('./configurations');
 const { users, usersFavorites } = require.main.require('./database');
 const system = require('../../system');
@@ -26,12 +27,14 @@ async function getuserFavorites(userData = []) {
     const getFavorites = await usersFavorites.getUserFavorites(userData.id);
     const { id, username, name } = userData;
     if (getFavorites) {
-        const favorites = [];
+        const favoritesArray = [];
         getFavorites.map(items => {
-            favorites.push(items.characterId);
+            favoritesArray.push(items.characterId);
         });
+        const favorites = await axios.get(`https://rickandmortyapi.com/api/character/${favoritesArray}`);
+        const fav = favorites.data;
         return {
-            id, username, name, favorites,
+            id, username, name, fav,
         };
     }
 

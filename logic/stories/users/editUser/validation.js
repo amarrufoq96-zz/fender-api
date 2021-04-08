@@ -9,19 +9,15 @@ validation.validateParameters = async (parameters) => {
         username: Joi.string()
             .trim()
             .min(3)
-            .max(255)
-            .required(),
+            .max(255),
         password: Joi.string()
             .trim()
             .max(255)
-            .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$'))
-            .required(),
+            .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')),
         name: Joi.string()
-            .max(255)
-            .required(),
+            .max(255),
         active: Joi.number()
-            .max(1)
-            .required(),
+            .max(1),
     });
     return schema.validateAsync(parameters);
 };

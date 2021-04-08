@@ -12,7 +12,7 @@ async function newUser(parameters = {}) {
         active: 1,
     };
     const insertUser = await users.insert(body);
-    return { success: 200, id: insertUser.insertId };
+    return { id: insertUser.insertId };
 }
 
 functions.createUser = async parameters => {
