@@ -2,7 +2,7 @@ const mysql = require('../../mysql')();
 const model = {};
 
 model.getUserFavorites = username => mysql.query(`
-SELECT character_id AS characterId
+SELECT DISTINCT character_id AS characterId
 FROM user_favorites
 WHERE user_id = ? AND active = 1;`, [username]);
 

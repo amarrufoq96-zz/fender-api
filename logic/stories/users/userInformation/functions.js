@@ -26,7 +26,7 @@ async function getuserInformation(parameters = {}) {
 async function getuserFavorites(userData = []) {
     const getFavorites = await usersFavorites.getUserFavorites(userData.id);
     const { id, username, name } = userData;
-    if (getFavorites) {
+    if (getFavorites.length > 0) {
         const favoritesArray = [];
         getFavorites.map(items => {
             favoritesArray.push(items.characterId);
@@ -37,8 +37,9 @@ async function getuserFavorites(userData = []) {
             id, username, name, fav,
         };
     }
-
-    return system.throwError(400, messages.loginError);
+    return {
+        id, username, name, fav: [],
+    };
 }
 
 functions.userFavorites = async parameters => {
