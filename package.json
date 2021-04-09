@@ -3,6 +3,9 @@
     "version": "0.1.0",
     "description": "API_DEL_PROYECTO_rick_and_morty",
     "main": "app.js",
+    "scripts": {
+        "start": "nodemon"
+    },
     "author": "AMQ",
     "license": "ISC",
     "dependencies": {
